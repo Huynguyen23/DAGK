@@ -1,0 +1,4 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_MESSAGE_USER = 'SET_MESSAGE_USER';
+export const GET_MESSAGE_USER = 'GET_MESSAGE_USER';
