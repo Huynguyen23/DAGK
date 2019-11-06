@@ -14,23 +14,13 @@ export const registerUser = (user, history) => dispatch => {
             });
 }
 
-export const update = (user, history) => dispatch => {
-    axios.post('/api/users/update', user)
-            .then(res => history.push('/home'))
-            .catch(err => {
-                dispatch({
-                    type: GET_ERRORS,
-                    payload: err.response.data
-                });
-            });
-}
-
 export const loginUser = (user) => dispatch => {
     axios.post('/api/users/login', user)
             .then(res => {
                 const { token } = res.data;
                 localStorage.setItem('jwtToken', token);
                 setAuthToken(token);
+                localStorage.setItem('userInfo', user);
                 const decoded = jwt_decode(token);
                 dispatch(setCurrentUser(decoded));
             })
@@ -41,7 +31,19 @@ export const loginUser = (user) => dispatch => {
                 });
             });
 }
-
+export const getUser = () => dispatch => {
+    axios.get('/api/users/me')
+            .then(res => {
+                const { user } = res.data;
+                localStorage.setItem('userInfo', user);
+            })
+            .catch(err => {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                });
+            });
+}
 export const setCurrentUser = decoded => {
     return {
         type: SET_CURRENT_USER,

@@ -36,12 +36,12 @@ body {
 }
 
 .chat_window {
-  margin-top: 200px;
-  margin-left: 630px;
+  margin-top: 100px;
+  margin-left: 530px;
   position: absolute;
   width: calc(100% - 20px);
   max-width: 450px;
-  height: 600px;
+  height: 650px;
   border-radius: 10px;
   background-color: #fff;
   left: 50%;

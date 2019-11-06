@@ -10,6 +10,7 @@ var userOnline = []; //danh sách user dang online
 var Userto;
 io.on('connection', function(socket) {
     console.log(socket.id + ': connected');
+    if(userOnline.length < 2)
      userOnline.push(socket.id);
      console.log(userOnline);
     if(userOnline){
@@ -49,6 +50,15 @@ io.on('connection', function(socket) {
         });
     })
 
+    socket.on('wait', data => {
+        if(Userto){
+            console.log(data);
+        io.sockets.emit('wait', {
+            data: data.key
+        });
+    }
+    })
+
     socket.on('nextPlayer', data => {
         console.log(data);
         //gửi lại tin nhắn cho tất cả các user dang online
@@ -56,7 +66,6 @@ io.on('connection', function(socket) {
             return element != socket.id; 
           });
             io.sockets.sockets[found].emit('nextPlayer', {
-                luot:data.luot,
                 name: data.name,
                 i:data.i,
                 j:data.j

@@ -25,17 +25,7 @@ class Home extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-4 m-auto"></div>
-          <div className="btn-group-vertical">
-            <button type="button" className="btn btn-primary">
-              Apple
-            </button>
-            <button type="button" cclassNamelass="btn btn-primary">
-              Samsung
-            </button>
-            <button type="button" className="btn btn-primary">
-              Sony
-            </button>
-          </div>
+         
         </div>
       </div>
     );

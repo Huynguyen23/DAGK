@@ -10,7 +10,6 @@ class Game_online extends Component {
       super(props);
       //Khởi tạo state,
       this.state = {
-        luot: true,
         user: null,
         me: null,
         your: null
@@ -20,37 +19,13 @@ class Game_online extends Component {
   
   componentWillMount() {
     this.props.p_socket.on('id', (res) => { console.log("USERb " + res.res), this.state.user = res.res})
-    this.props.p_socket.on('nextPlayer', (response) => {console.log("NAME " + response.name),this.state.your = response.name, this.updateBoard(response.i,response.j)}); //lắng nghe event 'newMessage' và gọi hàm newMessage khi có event
+    this.props.p_socket.on('nextPlayer', (response) => {this.state.your = response.name, this.handleClick(response.i,response.j)}); //lắng nghe event 'newMessage' và gọi hàm newMessage khi có event
    
   }
   setHist = () =>{
     this.props.p_setHistory();
    }
-   updateBoard =(i,j) =>{
-    console.log(this.props.auth.user)
-    console.log("set mod" + this.props.p_setMode);
-    const history = this.props.p_history.slice(0, this.props.p_step + 1);
-    const current = history[this.props.p_step];
-    const squares = current.squares.slice();
-    current.squares.map((row, idx) => {
-      squares[idx] = current.squares[idx].slice();
-      return true;
-    });
-    
-    if (calculateWinner(squares) || squares[i][j]) {
-      return;
-    }
-      squares[i][j] = this.props.p_xIsNext ? "X" : "O";
 
-      this.props.p_clickSquare(
-        history.concat([
-          {
-            squares: squares,
-            location: { x: i, y: j }
-          }
-        ]) 
-      );
-   }
   handleClick = (i, j) => {
     console.log(this.props.auth.user)
     console.log("set mod" + this.props.p_setMode);

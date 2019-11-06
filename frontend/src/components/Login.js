@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { loginUser } from "../actions/authentication";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FacebookLogin from "react-facebook-login";
-
 import GoogleLogin from "react-google-login";
 
 import classnames from "classnames";
@@ -34,15 +33,7 @@ class Login extends Component {
       [e.target.name]: e.target.value
     });
   }
-  // responseFacebook = (response) => {
-  //     FB.getLoginStatus(function(response) {
-  //         statusChangeCallback(response);
-  //       });
-  // }
 
-  // responseGoogle = (response) => {
-  //     console.log(response);
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -77,7 +68,7 @@ class Login extends Component {
             <h2>Login</h2>
             <div className="image-upload">
               <label for="file-input">
-                <img src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg" />
+                <img src="././images/icons8-client-management-64.png" />
               </label>
 
               <input id="file-input" type="file" hidden/>

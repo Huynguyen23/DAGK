@@ -12,7 +12,6 @@ import Navbar from '../components/Navbar';
 import Register from '../components/Register';
 import GameStart from '../containers/GameStart';
 import Login from '../components/Login';
-import Home from '../components/Home';
 import Mode from '../components/Mode';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,12 +36,13 @@ class App extends Component {
         <Router>
             <div>
               <Navbar />
-                <Route exact path="/" component={ Home } />
+                <Route exact path="/" component={ Login } />
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/mode" component={ Mode } />
-                  <Route exact path="/gamestart" component={ GameOnline } />
+                  <Route exact path="/gameonline" component={ GameOnline } />
+                  <Route exact path="/gamestart" component={ GameStart } />
                 </div>
             </div>
           </Router>
