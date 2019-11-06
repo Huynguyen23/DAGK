@@ -53,9 +53,11 @@ io.on('connection', function(socket) {
         console.log(data);
         //gửi lại tin nhắn cho tất cả các user dang online
         var found = userOnline.find(function(element) { 
-            return element != data.user; 
+            return element != socket.id; 
           });
             io.sockets.sockets[found].emit('nextPlayer', {
+                luot:data.luot,
+                name: data.name,
                 i:data.i,
                 j:data.j
             });

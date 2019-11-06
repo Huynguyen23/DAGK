@@ -41,12 +41,12 @@ let Game = ({
   if(user === null){
     p_socket.on('id', (res) => { console.log("USERb " + res.res), user = res.res})
   }
-    p_socket.on('nextPlayer', (response) => {iNew = response.i,jNew=response.j, console.log( response)}); //lắng nghe event 'newMessage' và gọi hàm newMessage khi có event
+    p_socket.on('nextPlayer', (response) => {console.log( response)}); //lắng nghe event 'newMessage' và gọi hàm newMessage khi có event
    
   // const setHis = (history)=>{
   //   p_history = history
   // };
-  
+
   console.log("set mod" + p_setMode);
   let handleClick = (i, j) => {
     console.log("set mod" + p_setMode);
@@ -186,9 +186,6 @@ console.log("history" + p_history);
             </button>
           </div>
           <ol>{moves}</ol>
-        </div>
-        <div className = "chat_form">
-          <Chat />
         </div>
       </div>
     </div>

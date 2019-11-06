@@ -16,6 +16,7 @@ import Home from '../components/Home';
 import Mode from '../components/Mode';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import GameOnline from './Game-online';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -41,7 +42,7 @@ class App extends Component {
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/mode" component={ Mode } />
-                  <Route exact path="/gamestart" component={ GameStart } />
+                  <Route exact path="/gamestart" component={ GameOnline } />
                 </div>
             </div>
           </Router>

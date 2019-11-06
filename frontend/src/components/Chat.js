@@ -23,7 +23,7 @@ class App extends React.Component {
     //Connetct với server nodejs, thông qua socket.io
     componentWillMount() {
         //this.socket = io('localhost:6969');
-            //this.socket.on('id', (res) => { console.log("USERA " + res.res), this.setState({user: res.res})}) // lắng nghe event có tên 'id'
+        this.props.socket.on('id', (res) => { console.log("USERA " + res.res), this.setState({user: res.res})}) // lắng nghe event có tên 'id'
         //console.log("user"+ this.state.user);
         this.props.socket.on('newMessage', (response) => { console.log("response " + response), this.newMessage(response)}); //lắng nghe event 'newMessage' và gọi hàm newMessage khi có event
     }
@@ -57,7 +57,7 @@ class App extends React.Component {
     sendnewMessage(m) {
         console.log("Đã vào!!!"+m.value);
         if (m.value) {
-            this.socket.emit("newMessage",{id:this.state.user, value:m.value}); //gửi event về server
+            this.props.socket.emit("newMessage", {value:m.value}); //gửi event về server
             m.value = ""; 
         }
        

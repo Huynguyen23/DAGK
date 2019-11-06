@@ -12,11 +12,6 @@ export const changeStep = (step) => ({
   step
 })
 
-export const addHistory = (i, j) => ({
-  type: 'CLICK_SQUARE',
-  i, j
-})
-
 export const clickSquare = (history) => ({
   type: 'CLICK_SQUARE',
   history
@@ -36,4 +31,9 @@ export const sortMoves = (isDescending) => ({
 
 export const getMessage = () => ({
   type: 'GET_MESSAGE_USER'
+})
+
+export const updateHistory = (data) => ({
+  type: 'UPDATE_HISTORY',
+  data
 })
